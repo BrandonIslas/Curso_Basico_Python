@@ -1,21 +1,23 @@
-#!/usr/bin/python
-#-*- coding: utf-8 -*-
-
-#Enviar correo Gmail con python
-
 import smtplib
 
-remitente = 'brandon.esocm.98@gmail.com'
-destinatario = 'brandon98642@gmail.com'
-msg='Correo enviadi utilizando Python + smtplib '
+ #datos
+username = input("pon tu correo:")
+password = input("itroduce la clave de acceso a tu correo:")
+destinatario  = input("correo de destino:")
+msg = input("escribe el texto del mensaje:")
 
-#Datos
-username ='brandon.esocm.98@gmail.com'
-password ='50502720'
+# Enviando el correo
 
-#Enviando el Correo
-server = smtplib.SMTP('smtp.gmail.com:587')
+#server = smtplib.SMTP('smtp.gmail.com:587') # con gmail
+server = smtplib.SMTP('smtp-mail.outlook.com:587')
 server.starttls()
 server.login(username,password)
-server.sendmail(remitente,destinatario,msg)
+server.sendmail(username, destinatario, msg)
 server.quit()
+
+# server = smtplib.SMTP('smtp-mail.outlook.com:587') # con outlook
+# server =  smtplib.SMTP('smtp.mail.yahoo.com:587') # con yahoo
+# server =  smtplib.SMTP('smtp.mail.att.net:465') # con AT&T
+# server =  smtplib.SMTP('smtp.comcast.net:465') # con COMCAST
+# server =  smtplib.SMTP('smtp.verizon.net:465') # con verizon
+# server =  smtplib.SMTP('smtp.mail.yahoo.com:587') # con yahoo
